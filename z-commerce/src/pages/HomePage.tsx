@@ -1,22 +1,40 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useReducer, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { sampleProducts } from "../data";
 import { Link } from "react-router-dom";
+import { Product } from "../types/Product";
+import { type } from "os";
+import axios from "axios";
+import { getError } from "../utils";
+import { ApiError } from "../types/ApiError";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import ProductItem from "../components/ProductItem";
+import { Helmet } from "react-helmet-async";
+import { useGetProductsQuery } from "../hooks/productHooks";
+
+enum Fetches {
+  REQUEST = "FETCH_REQUEST",
+  SUCCESS = "FETCH_SUCCESS",
+  FAIL = "FETCH_FAIL",
+}
 
 export default function HomePage() {
-  return (
+  const { data: products, isLoading, error } = useGetProductsQuery();
+
+  return isLoading ? (
+    <LoadingBox />
+  ) : error ? (
+    <MessageBox variant="danger">{getError(error as ApiError)}</MessageBox>
+  ) : (
     <Row>
-      {sampleProducts.map((product) => (
+      <Helmet>
+        <title>TS amaZiv</title>
+      </Helmet>
+      {products!.map((product) => (
         <Col key={product.slug} sm={6} md={4} lg={3}>
-          <Link to={"/product/" + product.slug}>
-            <img
-              className="product-img"
-              src={product.image}
-              alt={product.image}
-            />
-            <h2>{product.name}</h2>
-            <p>${product.price}</p>
-          </Link>
+          <ProductItem product={product} />
         </Col>
       ))}
     </Row>
