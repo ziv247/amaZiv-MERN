@@ -1,11 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useReducer, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import { sampleProducts } from "../data";
-import { Link } from "react-router-dom";
-import { Product } from "../types/Product";
-import { type } from "os";
-import axios from "axios";
 import { getError } from "../utils";
 import { ApiError } from "../types/ApiError";
 import LoadingBox from "../components/LoadingBox";
