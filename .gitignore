@@ -1,1 +1,4 @@
 backend/.gitignore
+node_modules/
+.env
+.gitignore

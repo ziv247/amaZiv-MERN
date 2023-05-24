@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 import { CartItem } from "../types/Cart";
@@ -28,7 +28,7 @@ export default function CartPage() {
     });
   };
 
-  const checkoutHandler = (item: CartItem, quantity: number) => {
+  const checkoutHandler = () => {
     navigate("/signin?redirect=/shipping");
   };
 

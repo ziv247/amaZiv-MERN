@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Product } from "../types/Product";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";

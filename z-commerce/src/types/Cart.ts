@@ -18,7 +18,7 @@ export type ShippingAddress = {
 
 export type Cart = {
   cartItems: CartItem[];
-  ShippingAddress: ShippingAddress;
+  shippingAddress: ShippingAddress;
   paymentMethod: string;
   itemsPrice: number;
   shippingPrice: number;

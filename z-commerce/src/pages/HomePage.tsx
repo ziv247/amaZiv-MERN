@@ -8,12 +8,6 @@ import ProductItem from "../components/ProductItem";
 import { Helmet } from "react-helmet-async";
 import { useGetProductsQuery } from "../hooks/productHooks";
 
-enum Fetches {
-  REQUEST = "FETCH_REQUEST",
-  SUCCESS = "FETCH_SUCCESS",
-  FAIL = "FETCH_FAIL",
-}
-
 export default function HomePage() {
   const { data: products, isLoading, error } = useGetProductsQuery();
 
