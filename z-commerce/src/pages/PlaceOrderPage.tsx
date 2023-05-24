@@ -26,7 +26,6 @@ export default function PlaceOrderPage() {
   const { mutateAsync: createOrder, isLoading } = useCreateOrderMutation();
 
   const placeOrderHandler = async () => {
-    console.log(cart);
     try {
       const data = await createOrder({
         orderItems: cart.cartItems,

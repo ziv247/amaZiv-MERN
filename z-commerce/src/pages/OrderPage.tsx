@@ -47,7 +47,6 @@ export default function OrderPage() {
   const { data: paypalConfig } = useGetPaypalClientIdQuery();
 
   useEffect(() => {
-    console.log("paypalConfig", paypalConfig);
     if (paypalConfig && paypalConfig.clientId) {
       const loadPaypalScript = async () => {
         paypalDispatch({

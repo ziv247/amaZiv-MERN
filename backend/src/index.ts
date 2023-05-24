@@ -11,7 +11,6 @@ import { keyRouter } from "./routers/keyRouter";
 
 dotenv.config();
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/tsamazivdb";
-console.log(process.env);
 
 mongoose.set("strictQuery", true);
 mongoose
